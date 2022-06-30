@@ -2,6 +2,8 @@
 
 Fooling around with Blinkt! LED bars for Raspberry Pi 
 
+Based on Pimoroni code: https://github.com/pimoroni/blinkt
+
 ## Pre-Requisites
 
 On Raspbian:

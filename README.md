@@ -18,9 +18,11 @@ On Raspbian:
 
 On Raspbian:
 
+    sudo mkdir /opt/blinkt
     sudo cp cpu_load.py /opt
     sudo cp contrib/blinkt.service /lib/systemd/system
     sudo chmod 644 /lib/systemd/system/blinkt.service
+    sudo systemctl daemon-reload
     sudo systemctl enable blinkt.service
     sudo systemctl start blinkt.service
 

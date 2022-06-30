@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import time
+import signal
 from sys import exit
 
 try:
@@ -27,8 +28,18 @@ def show_graph(v, r, g, b):
 
 blinkt.set_brightness(0.1)
 
-while True:
-    v = psutil.cpu_percent() / 100.0
-    show_graph(v, 255, 255, 255)
-    time.sleep(0.01)
+def clear_leds(signum, frame):
+        blinkt.clear()
+        blinkt.show()
+        exit(0)
+
+signal.signal(signal.SIGTERM, clear_leds)
+
+try:
+    while True:
+        v = psutil.cpu_percent() / 100.0
+        show_graph(v, 255, 255, 255)
+        time.sleep(0.01)
+except KeyboardInterrupt:
+    pass
 

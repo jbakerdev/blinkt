@@ -1,0 +1,10 @@
+[Unit]
+Description=Blinkt! LED Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /opt/blinkt/cpu_load.py
+
+[Install]
+WantedBy=multi-user.target
